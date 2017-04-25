@@ -95,7 +95,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Name = "Form2";
-            this.Text = "Chọn khuôn mặt nhận diện ";
+            this.Text = "Chọn Khuôn Mặt Nhận Diện ";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

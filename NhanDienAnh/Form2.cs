@@ -76,7 +76,12 @@ namespace NhanDienAnh
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 listView1.Visible = true;
-                this.Width = this.Width + listView1.Width;
+                if (thunho == false)
+                {
+                    this.Width = this.Width + listView1.Width;
+                    thunho = true;
+                }
+              
                 try
                 {
                     //Set các thông số độ nghiêng
@@ -157,6 +162,7 @@ namespace NhanDienAnh
                 {
                     MessageBox.Show(ex.Message.ToString(), "Exception");
                 }
+          
             }
         }
 
@@ -187,16 +193,28 @@ namespace NhanDienAnh
         {
             this.Close();
         }
-
+        bool thunho = false;
         private void button3_Click(object sender, EventArgs e)
         {
             FaceList = new List<TFaceRecord>();
             imageList1 = new ImageList();
+            Size size100x100 = new Size(100, 100);
+            imageList1.ImageSize = size100x100;
             listView1.LargeImageList = imageList1;
+            imageList1.ColorDepth = ColorDepth.Depth24Bit;
             pictureBox1.Image = null;
             listView1.Items.Clear();
             listView1.Visible = false;
-            this.Width = this.Width - listView1.Width;
+            if (thunho == true)
+            {
+                this.Width = this.Width - listView1.Width;
+                thunho = false;
+            }
+           
+          
+
+
+
 
         }
         

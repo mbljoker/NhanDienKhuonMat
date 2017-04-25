@@ -148,13 +148,17 @@ namespace NhanDienAnh
         private void nhậnDiệnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            if (AnhList.Count == 0|| Form2.FaceList.Count==0 )
+            if (AnhList.Count == 0|| Form2.FaceList==null?true:Form2.FaceList.Count==0 )
+        
                 MessageBox.Show("Chưa có dữ liệu ảnh đào tạo hoặc chưa có ảnh nhận diện ", "Lỗi ");
             else
             {
+                demlv2 = 0;
                 listView2.Items.Clear();
                 imageList2.Images.Clear();
+                FaceListID.Clear();
                 listView2.LargeImageList = imageList2;
+               
                 for (int i3 = 0; i3 < AnhList.Count;i3++ )
                 {
                     try
@@ -213,6 +217,12 @@ namespace NhanDienAnh
 
 
                 }
+                ShowXuLi showXuLi = new ShowXuLi();
+                showXuLi.max = 100;
+                showXuLi.min = 1;
+                showXuLi.step = 100 / FaceListID.Count;
+                showXuLi.Show();
+
                 for (int i1 = 0; i1 < FaceListID.Count; i1++)
                 {
                     xuLy(FaceListID[i1],i1);
@@ -222,8 +232,11 @@ namespace NhanDienAnh
                         listView2.SelectedIndices.Add(0);
                         listView2.CheckBoxes = true;
                     }
+                    showXuLi.getIndex(((i1+1)*showXuLi.step).ToString(),0);
                 }
-
+                showXuLi.getIndex("100", 100);
+                MessageBox.Show("Nhận diện được "+listView2.Items.Count+" ảnh có mặt bạn !","Thông báo ");
+                showXuLi.Close();
                 if (groupBox3.Visible == false)
                 {
                     this.Height = this.Height + groupBox3.Height;
@@ -240,7 +253,7 @@ namespace NhanDienAnh
         /// <param name="SearchFace"></param>
         public void xuLy(TFaceRecord SearchFace, int index)
         {
-            
+           
             float Threshold = 0.0f;
             FSDK.GetMatchingThresholdAtFAR(Form1.FARValue / 100, ref Threshold);
 
@@ -269,8 +282,8 @@ namespace NhanDienAnh
                         items.ToolTipText = SearchFace.ImageFileName;
                         items.Tag = SearchFace;
                         listView2.Items.Add(items);
-                       
-                        AnhList[index].TrangThai = true;
+                       // MessageBox.Show(index.ToString()+" "+AnhList.Count+" "+FaceListID.Count);
+                        AnhList[index].TrangThai = true;///sfsdfds
                         return;
                         ////Similarities[MatchedCount] = Similarity;
                         ////Numbers[MatchedCount] = i;
@@ -325,6 +338,18 @@ namespace NhanDienAnh
             {
                     MessageBox.Show("Không được chức năng này vì chưa chọn ảnh xuất hoặc chưa nhận diện !");
             }
+        }
+
+        private void xóaTấtCảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XacThucAnh.Clear();
+            
+            AnhList.Clear();
+            DanhSachAnh.Clear();
+            listView1.Items.Clear();
+            imageListthumbnail.Images.Clear();
+            dem = 0;
+            pictureBox1.Image = null;
         }
 
     }

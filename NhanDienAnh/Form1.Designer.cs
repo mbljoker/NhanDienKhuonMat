@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.đàoTạoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ảnhĐàoTạoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậnDiệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ảnhĐàoTạoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,6 +41,7 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thêmẢnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaTấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,7 +60,7 @@
             this.lưuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(714, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,11 +71,18 @@
             this.đàoTạoToolStripMenuItem.Text = "Đào Tạo";
             this.đàoTạoToolStripMenuItem.Click += new System.EventHandler(this.đàoTạoToolStripMenuItem_Click);
             // 
+            // ảnhĐàoTạoToolStripMenuItem
+            // 
+            this.ảnhĐàoTạoToolStripMenuItem.Name = "ảnhĐàoTạoToolStripMenuItem";
+            this.ảnhĐàoTạoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.ảnhĐàoTạoToolStripMenuItem.Text = "Ảnh Đào Tạo";
+            this.ảnhĐàoTạoToolStripMenuItem.Click += new System.EventHandler(this.ảnhĐàoTạoToolStripMenuItem_Click);
+            // 
             // nhậnDiệnToolStripMenuItem
             // 
             this.nhậnDiệnToolStripMenuItem.Name = "nhậnDiệnToolStripMenuItem";
-            this.nhậnDiệnToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.nhậnDiệnToolStripMenuItem.Text = "Nhận diện";
+            this.nhậnDiệnToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.nhậnDiệnToolStripMenuItem.Text = "Nhận Diện";
             this.nhậnDiệnToolStripMenuItem.Click += new System.EventHandler(this.nhậnDiệnToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
@@ -83,13 +91,6 @@
             this.lưuToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
-            // 
-            // ảnhĐàoTạoToolStripMenuItem
-            // 
-            this.ảnhĐàoTạoToolStripMenuItem.Name = "ảnhĐàoTạoToolStripMenuItem";
-            this.ảnhĐàoTạoToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.ảnhĐàoTạoToolStripMenuItem.Text = "Ảnh Đào Tạo";
-            this.ảnhĐàoTạoToolStripMenuItem.Click += new System.EventHandler(this.ảnhĐàoTạoToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -143,9 +144,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmẢnhToolStripMenuItem});
+            this.thêmẢnhToolStripMenuItem,
+            this.xóaTấtCảToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 48);
             // 
             // thêmẢnhToolStripMenuItem
             // 
@@ -153,6 +155,13 @@
             this.thêmẢnhToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.thêmẢnhToolStripMenuItem.Text = "Thêm Ảnh";
             this.thêmẢnhToolStripMenuItem.Click += new System.EventHandler(this.thêmẢnhToolStripMenuItem_Click);
+            // 
+            // xóaTấtCảToolStripMenuItem
+            // 
+            this.xóaTấtCảToolStripMenuItem.Name = "xóaTấtCảToolStripMenuItem";
+            this.xóaTấtCảToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.xóaTấtCảToolStripMenuItem.Text = "Xóa tất cả";
+            this.xóaTấtCảToolStripMenuItem.Click += new System.EventHandler(this.xóaTấtCảToolStripMenuItem_Click);
             // 
             // groupBox3
             // 
@@ -168,14 +177,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 603);
+            this.ClientSize = new System.Drawing.Size(689, 603);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Detect Faces";
+            this.Text = "Nhận Diện Ảnh ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -204,6 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem đàoTạoToolStripMenuItem;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ToolStripMenuItem xóaTấtCảToolStripMenuItem;
     }
 }
 
